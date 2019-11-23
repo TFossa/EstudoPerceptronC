@@ -1,25 +1,25 @@
 #include <stdio.h>
-#define threshold 6 
+#define threshold 1
 #define peso1 1
-#define peso2 2
-#define peso3 3
+#define peso2 1
+#define peso3 1
 
 int main () {
-	int x1, x2, x3;
-	int w1, w2, w3;
-	int soma, r;
+		int x1, x2, x3;
+		int w1 = peso1, w2 = peso2, w3 = peso3;
+		short int resultado;
+		float soma;
+		float totalX, totalW;
 
-	scanf("%d %d %d", &x1, &x2, &x3);
+		scanf("%d %d %d", &x1, &x2, &x3);
 
-	w1 = peso1;
-	w2 = peso2;
-	w3 = peso3;
+		totalX = x1 + x2 + x3;
+		totalW = w1 + w2 + w3;
+		soma = (totalX) / (totalW);
 
-	soma = (x1 + x2 + x3) / (w1 + w2 + w3);
+		if (soma <= threshold) resultado = 0;
+		else resultado = 1;
 
-	if (soma <= threshold) r = 0;
-	else r = 1;
-
-	printf("%d\n", r);
-	return 0;
+		printf("> %d\n", resultado);
+		return 0;
 }
