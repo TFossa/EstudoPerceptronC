@@ -1,23 +1,25 @@
 #include <stdio.h>
-#define peso1 13
-#define peso2 15
+#define threshold 6 
+#define peso1 1
+#define peso2 2
+#define peso3 3
 
 int main () {
-    int x1,x2;
-    int w1 = peso1,w2 = peso2;
-    int r1,r2,rt;
+	int x1, x2, x3;
+	int w1, w2, w3;
+	int soma, r;
 
-    scanf("%d %d", &x1,&x2);
+	scanf("%d %d %d", &x1, &x2, &x3);
 
-    r1 = x1 * w1;
-    r2 = x2 * w2;
-    
-    rt = (r1 + r2) / (w1 + w2);
+	w1 = peso1;
+	w2 = peso2;
+	w3 = peso3;
 
-    if (rt <= 20) rt = 0; 
-    else  rt = 1;
-    
-    printf("%d\n", rt);
+	soma = (x1 + x2 + x3) / (w1 + w2 + w3);
 
-    return 0;
+	if (soma <= threshold) r = 0;
+	else r = 1;
+
+	printf("%d\n", r);
+	return 0;
 }
