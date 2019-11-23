@@ -6,7 +6,7 @@
 
 int main () {
 		int x1, x2, x3;
-		int w1 = peso1, w2 = peso2, w3 = peso3;
+		float w1 = peso1, w2 = peso2, w3 = peso3;
 		short int resultado;
 		float soma;
 		float totalX, totalW;
