@@ -1,21 +1,22 @@
 #include <stdio.h>
-#define threshold 5
-#define peso1 3 
+#define bias 2
+#define peso1 2 
 #define peso2 1 
-#define peso3 2
 
 int main () {
-	int x1, x2, x3;
-	float w1 = peso1, w2 = peso2, w3 = peso3;
+	int x1, x2;
+	float w1 = peso1, w2 = peso2;
 	float soma;
 	short int resposta;
 
-	scanf("%d %d %d", &x1, &x2, &x3);
+	scanf("%d %d", &x1, &x2);
 
-	soma = x1 * w1 + x2 * w2 + x3 * w3;
+	soma = x1 * w1 + x2 * w2 + bias;
 
-	if (soma >= threshold) resposta= 1;
-	else resposta = 0;
+	printf("s = %f\n", soma);
+
+	if (soma <= 0) resposta = 0;
+	else if (soma > 0) resposta = 1;
 
 	printf("> %d\n", resposta);
 	return 0;
