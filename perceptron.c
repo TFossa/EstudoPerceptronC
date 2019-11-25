@@ -1,7 +1,7 @@
 #include <stdio.h>
-#define bias 2
-#define peso1 2 
-#define peso2 1 
+#define threshold -1 
+#define peso1 1 
+#define peso2 -2
 
 int main () {
 	int x1, x2;
@@ -11,12 +11,10 @@ int main () {
 
 	scanf("%d %d", &x1, &x2);
 
-	soma = x1 * w1 + x2 * w2 + bias;
+	soma = x1 * w1 + x2 * w2;
 
-	printf("s = %f\n", soma);
-
-	if (soma <= 0) resposta = 0;
-	else if (soma > 0) resposta = 1;
+	if (soma <= threshold) resposta = 0;
+	else if (soma > threshold) resposta = 1;
 
 	printf("> %d\n", resposta);
 	return 0;
