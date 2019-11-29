@@ -1,38 +1,28 @@
 #include <stdio.h>
-#define thresholdp1 1 
-#define thresholdp2 0 
-#define thresholdp3 0 
-#define pesop1p2 1 
-#define pesor1p3 1
-#define pesor2p3 -1
+#define bias -1
 
 int main () {
-	int x1, x2;
-	float w1 = pesop1p2, w2 = pesop1p2;
-	float w3 = pesor1p3, w4 = pesor2p3;
-	float somap1, somap2, somap3;
-	short int respostap1, respostap2, respostap3;
+	int x[2];
+	float weight[6] = {1,1,2,2};
+	float soma[3];
+	short int resposta[3];
 
-	scanf("%d %d", &x1, &x2);
+	scanf("%d %d", &x[0], &x[1]);
 
 	// Primeiro perceptron > and
-	somap1 = x1 * w1 + x2 * w2;
+	soma[0] = x[0] * weight[0] + x[1] * weight[1] + bias;
 
-	if (somap1 <= thresholdp1) respostap1 = 0;
-	else if (somap1 > thresholdp1) respostap1 = 1;
-
+	if (soma[0] < 1) resposta[0] = 0;
+	else resposta[0] = 1;
 	// segundo perceptron > or
-	somap2 = x1 * w1 + x2 * w2;
+	soma[1] = x[0] * weight[2] + x[1] * weight[3] + bias;
 
-	if (somap2 <= thresholdp2) respostap2 = 0;
-	else if (somap2 > thresholdp2) respostap2 = 1;
-
+	if (soma[1] > 0) resposta[1] = 1;
+	else resposta[1] = 0;
 	// perceptron final
-	somap3 = respostap1 * w3 + respostap2 * w4;
+	soma[2] = resposta[0] * weight[4] + resposta[1] * weight[5] + bias;
 	
-	if (somap3 == thresholdp3) respostap3 = 0;
-	else respostap3 = 1;
 
-	printf("> %d\n", respostap3);
+	printf("> %d\n", resposta[2]);
 	return 0;
 }
